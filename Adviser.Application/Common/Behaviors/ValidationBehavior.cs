@@ -21,9 +21,7 @@ namespace Adviser.Application.Common.Behaviors
                 .Where(failure => failure != null)
                 .ToList();
             if (failures.Count != 0)
-            {
                 throw new ValidationException(failures);
-            }
             return next();
         }
     }

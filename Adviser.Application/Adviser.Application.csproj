@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.0" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="FluentValidation" Version="11.4.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.4.0" />
     <PackageReference Include="MediatR" Version="11.1.0" />
@@ -21,14 +22,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Exceptions\" />
-    <Folder Include="CQRS\Comment\" />
-    <Folder Include="CQRS\Mark\" />
-    <Folder Include="CQRS\Review\" />
-    <Folder Include="CQRS\Subject\" />
-    <Folder Include="CQRS\Tag\" />
-    <Folder Include="CQRS\TagReview\" />
-    <Folder Include="CQRS\User\" />
+    <Folder Include="CQRS\Comments\" />
+    <Folder Include="CQRS\Marks\" />
+    <Folder Include="CQRS\Reviews\Commands\UpdateReview\" />
+    <Folder Include="CQRS\Reviews\Queries\" />
+    <Folder Include="CQRS\Subjects\" />
+    <Folder Include="CQRS\Tags\" />
+    <Folder Include="CQRS\TagReviews\" />
   </ItemGroup>
 
 </Project>
