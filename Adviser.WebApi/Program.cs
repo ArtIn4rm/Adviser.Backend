@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Hosting;
 using Adviser.Persistence;
 using Adviser.WebApi;
 
