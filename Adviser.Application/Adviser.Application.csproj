@@ -24,7 +24,6 @@
   <ItemGroup>
     <Folder Include="CQRS\Comments\" />
     <Folder Include="CQRS\Marks\" />
-    <Folder Include="CQRS\Reviews\Commands\UpdateReview\" />
     <Folder Include="CQRS\Reviews\Queries\" />
     <Folder Include="CQRS\Subjects\" />
     <Folder Include="CQRS\Tags\" />

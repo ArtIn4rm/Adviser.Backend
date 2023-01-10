@@ -1,31 +1,24 @@
+using Microsoft.AspNetCore.Hosting;
+using Adviser.Persistence;
+using Adviser.WebApi;
+
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
+Startup.Init(builder)
+    .ConfigureServices();
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+using (var scope = app.Services.CreateScope())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    var serviceProvider = scope.ServiceProvider;
+    try
+    {
+        var context = serviceProvider.GetRequiredService<AppDbContext>();
+        DbInitializer.Initialize(context);
+        Startup.ConfigureApplicationPipeline(app);
+    }
+    catch (InvalidOperationException exception)
+    {
+        Console.WriteLine(exception.Message);
+    }
 }
-else
-{
-    app.UseDefaultFiles();
-    app.UseStaticFiles();
-}
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();

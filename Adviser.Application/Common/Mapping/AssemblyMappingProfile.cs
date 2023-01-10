@@ -1,8 +1,9 @@
-﻿using System.Reflection;
+﻿using AutoMapper;
+using System.Reflection;
 
 namespace Adviser.Application.Common.Mapping
 {
-    public class AssemblyMappingProfile
+    public class AssemblyMappingProfile : Profile
     {
         public AssemblyMappingProfile(Assembly assembly) =>
            ApplyMappings(GetImplementedTypesFromAssembly(typeof(IMapWith<>), assembly));
